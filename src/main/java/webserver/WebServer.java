@@ -19,8 +19,10 @@ public class WebServer {
             // 클라이언트가 연결될때까지 대기한다.
             Socket connection;
             while ((connection = listenSocket.accept()) != null) {
+            	//여기 넘어가면서 여러 선. 
             	RequestHandler requestHandler = new RequestHandler(connection);
                 requestHandler.start();
+                //start를 하면서 쓰레드 만들어짐.
             }
     	}
     }
